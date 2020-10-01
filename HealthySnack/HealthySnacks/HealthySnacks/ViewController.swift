@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     
     lazy var classificationRequest: VNCoreMLRequest = {
         do{
-            let classifier = try HealthySnacks(configuration: MLModelConfiguration())
+            let classifier = try HealthyFood_model(configuration: MLModelConfiguration())
             
             let model = try VNCoreMLModel(for: classifier.model)
             let request = VNCoreMLRequest(model: model, completionHandler: {
@@ -65,10 +65,6 @@ class ViewController: UIViewController {
             }
         })
     }
-    
-    
-
-
 }
 
 extension ViewController: VideoCaptureDelegate {
@@ -110,7 +106,53 @@ extension ViewController {
             } else {
                 let result = results[0].identifier
                 let confidence = results[0].confidence
-                self.resultLabel.text = result
+                
+                //TODO
+                switch result {
+                case "apple":
+                    self.resultLabel.text = "Healthy"
+                case "banana":
+                    self.resultLabel.text = "Healthy"
+                case "carrot":
+                    self.resultLabel.text = "Healthy"
+                case "grape":
+                    self.resultLabel.text = "Healthy"
+                case "orange":
+                    self.resultLabel.text = "Healthy"
+                case "pineapple":
+                    self.resultLabel.text = "Healthy"
+                case "popcorn":
+                    self.resultLabel.text = "Healthy"
+                case "salad":
+                    self.resultLabel.text = "Healthy"
+                case "strawberry":
+                    self.resultLabel.text = "Healthy"
+                case "watermelon":
+                    self.resultLabel.text = "Healthy"
+                case "cake":
+                    self.resultLabel.text = "Unhealthy"
+                case "candy":
+                    self.resultLabel.text = "Unhealthy"
+                case "cookie":
+                    self.resultLabel.text = "Unhealthy"
+                case "doughnut":
+                    self.resultLabel.text = "Unhealthy"
+                case "hot dog":
+                    self.resultLabel.text = "Unhealthy"
+                case "ice cream":
+                    self.resultLabel.text = "Unhealthy"
+                case "juice":
+                    self.resultLabel.text = "Unhealthy"
+                case "muffin":
+                    self.resultLabel.text = "Unhealthy"
+                case "pretzel":
+                    self.resultLabel.text = "Unhealthy"
+                case "waffle":
+                    self.resultLabel.text = "Unhealthy"
+                default:
+                    self.resultLabel.text = "Can not be classified"
+                }
+                
                 self.confidenceLabel.text = String(format: "%.1f%%", confidence * 100)
                 print(result)
             }
