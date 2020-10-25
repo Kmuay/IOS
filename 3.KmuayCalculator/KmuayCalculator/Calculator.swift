@@ -109,19 +109,25 @@ func calculator(_ button_title:String) -> String{
         else {
             while(!operator_stack.empty()){
                 let op : String = operator_stack.pop()
-                let number2 : Double = number_stack.pop()
-                let number1 : Double = number_stack.pop()
-                if(op == "+") {
-                    number_stack.push(number1 + number2)
+                if(op == "(") {
+                    operator_stack.push(op)
+                    break
                 }
-                else if(op == "-") {
-                    number_stack.push(number1 - number2)
-                }
-                else if(op == "*") {
-                    number_stack.push(number1 * number2)
-                }
-                else if(op == "/") {
-                    number_stack.push(number1 / number2)
+                else {
+                    let number2 : Double = number_stack.pop()
+                    let number1 : Double = number_stack.pop()
+                    if(op == "+") {
+                        number_stack.push(number1 + number2)
+                    }
+                    else if(op == "-") {
+                        number_stack.push(number1 - number2)
+                    }
+                    else if(op == "*") {
+                        number_stack.push(number1 * number2)
+                    }
+                    else if(op == "/") {
+                        number_stack.push(number1 / number2)
+                    }
                 }
             }
             operator_stack.push(button_title)
@@ -146,7 +152,7 @@ func calculator(_ button_title:String) -> String{
                     let number1 : Double = number_stack.pop()
                     number_stack.push(number1 / number2)
                 }
-                else if(op == "+" || op == "-") {
+                else if(op == "+" || op == "-" || op == "(") {
                     operator_stack.push(op)
                     break
                 }
@@ -283,10 +289,45 @@ func calculator(_ button_title:String) -> String{
     else if(button_title == "Rand") {
         number_stack.push(Double(arc4random()))
     }
+    else if(button_title == "(") {
+        pre_operator = true
+        pre_number = false
+        operator_stack.push("(")
+        if(number_stack.empty()) {
+            return "0"
+        }
+    }
+    else if(button_title == ")") {
+        while(!operator_stack.empty()) {
+            let op : String = operator_stack.pop()
+            if(op == "+") {
+                let number2 : Double = number_stack.pop()
+                let number1 : Double = number_stack.pop()
+                number_stack.push(number1 + number2)
+            }
+            else if(op == "-") {
+                let number2 : Double = number_stack.pop()
+                let number1 : Double = number_stack.pop()
+                number_stack.push(number1 - number2)
+            }
+            else if(op == "*") {
+                let number2 : Double = number_stack.pop()
+                let number1 : Double = number_stack.pop()
+                number_stack.push(number1 * number2)
+            }
+            else if(op == "/") {
+                let number2 : Double = number_stack.pop()
+                let number1 : Double = number_stack.pop()
+                number_stack.push(number1 / number2)
+            }
+            else if(op == "(") {
+                break
+            }
+        }
+    }
     else {
         return "TO BE IMPROVED"
     }
-    
     
     return "\(number_stack.top())"
 }
