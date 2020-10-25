@@ -90,6 +90,9 @@ func calculator(_ button_title:String) -> String{
             }
             else {
                 var old_number : String = "\(number_stack.pop())"
+                while(old_number.last == "0") {
+                    old_number.removeLast()
+                }
                 old_number += button_title
                 if let new_number : Double = Double(old_number) {
                     number_stack.push(new_number)
@@ -283,6 +286,7 @@ func calculator(_ button_title:String) -> String{
     else {
         return "TO BE IMPROVED"
     }
+    
     
     return "\(number_stack.top())"
 }
