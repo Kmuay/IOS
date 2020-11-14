@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2W0-MN-enl">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Shopping List-->
+        <scene sceneID="QPX-Mo-9Sa">
+            <objects>
+                <tableViewController id="zDU-xT-FRD" customClass="GoodsTableViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IXh-X9-TT4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="GoodsTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GoodsTableViewCell" rowHeight="90" id="lRK-Yk-T0s" customClass="GoodsTableViewCell" customModule="ShoppingList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lRK-Yk-T0s" id="ftL-Is-S9L">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="QAM-Nl-Zxv">
+                                            <rect key="frame" x="0.0" y="0.0" width="89" height="89"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vhL-cI-lLZ" customClass="RatingControl" customModule="ShoppingList" customModuleProvider="target">
+                                            <rect key="frame" x="97" y="37" width="252" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5a-5I-6kl">
+                                            <rect key="frame" x="97" y="8" width="270" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="namelabel" destination="r5a-5I-6kl" id="zgB-7D-SI0"/>
+                                    <outlet property="photoimage" destination="QAM-Nl-Zxv" id="Zrc-NO-oQZ"/>
+                                    <outlet property="ratingcontrol" destination="vhL-cI-lLZ" id="76v-EU-YyD"/>
+                                    <segue destination="o0U-aT-Z4K" kind="show" identifier="ShowDetail" id="M4q-Ai-OfB"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zDU-xT-FRD" id="rkL-e1-lIz"/>
+                            <outlet property="delegate" destination="zDU-xT-FRD" id="5zJ-c2-9s5"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Shopping List" id="CBD-Zg-kD7">
+                        <barButtonItem key="rightBarButtonItem" title="+" id="KSk-3I-OIM">
+                            <connections>
+                                <segue destination="Taz-g5-GGX" kind="presentation" identifier="AddItem" id="T7A-yo-oos"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p4a-Zn-VNc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140.57971014492756" y="-771.42857142857144"/>
+        </scene>
+        <!--shoppinglist ViewController-->
+        <scene sceneID="yQH-Af-ae4">
+            <objects>
+                <navigationController title="shoppinglist ViewController" id="2W0-MN-enl" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FXH-Wj-0zM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zDU-xT-FRD" kind="relationship" relationship="rootViewController" id="hop-ff-KSJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jBo-aY-UBT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-867" y="-771"/>
+        </scene>
+        <!--Goods Detail ViewController-->
+        <scene sceneID="wS9-c1-8wr">
+            <objects>
+                <navigationController title="Goods Detail ViewController" id="Taz-g5-GGX" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eYc-2l-gf0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="o0U-aT-Z4K" kind="relationship" relationship="rootViewController" id="CKb-Gk-mwj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="axc-9c-ANk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1036" y="-1416"/>
+        </scene>
+        <!--Goods Detail-->
+        <scene sceneID="VJd-Rs-nsY">
+            <objects>
+                <viewController id="o0U-aT-Z4K" customClass="GoodsViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N83-0Z-B5V">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="xPh-aT-oKc">
+                                <rect key="frame" x="53" y="160" width="240" height="559"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oPX-HP-fE2">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="BaI-6V-50c">
+                                        <rect key="frame" x="0.0" y="39" width="240" height="240"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="BaI-6V-50c" secondAttribute="height" multiplier="1:1" id="5Px-UZ-oDx"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="E2d-Go-xKz" appends="YES" id="nVM-kC-54c"/>
+                                        </connections>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ubv-XT-SVK">
+                                        <rect key="frame" x="0.0" y="284" width="240" height="30"/>
+                                        <state key="normal" title="Add New Picture"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="E2d-Go-xKz" appends="YES" id="xOr-vy-1LV"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3d7-Hm-2Gs" customClass="RatingControl" customModule="ShoppingList" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="319" width="240" height="240"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="oPX-HP-fE2" secondAttribute="trailing" id="aHy-zv-fnb"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="v3E-Kp-VwH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xPh-aT-oKc" firstAttribute="leading" secondItem="v3E-Kp-VwH" secondAttribute="leading" constant="53" id="9Wi-EC-3LF"/>
+                            <constraint firstItem="xPh-aT-oKc" firstAttribute="top" secondItem="v3E-Kp-VwH" secondAttribute="top" constant="72" id="VNy-rp-vGK"/>
+                            <constraint firstItem="v3E-Kp-VwH" firstAttribute="trailing" secondItem="xPh-aT-oKc" secondAttribute="trailing" constant="121" id="atl-gO-gyX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Goods Detail" id="d5a-UA-q9V">
+                        <barButtonItem key="leftBarButtonItem" title="cancel" id="YkC-cD-Pa4">
+                            <connections>
+                                <action selector="cancel:" destination="o0U-aT-Z4K" id="jjf-Nq-Zjf"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="save" id="iCG-B7-wS9">
+                            <connections>
+                                <segue destination="6VJ-XS-alZ" kind="unwind" unwindAction="unwindToMealListWithSender:" id="pXn-zV-vDJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="oPX-HP-fE2" id="bw2-vl-2Gt"/>
+                        <outlet property="photoImageView" destination="BaI-6V-50c" id="KtS-Yy-p32"/>
+                        <outlet property="ratingControl" destination="3d7-Hm-2Gs" id="afJ-vI-DN9"/>
+                        <outlet property="saveButton" destination="iCG-B7-wS9" id="6RL-3c-CLI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Ni-bu-HRf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="6VJ-XS-alZ" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="E2d-Go-xKz">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="o0U-aT-Z4K" id="9HP-wU-sHb"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2180" y="-1189"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="M4q-Ai-OfB"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="defaultPhoto" width="540" height="540"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
