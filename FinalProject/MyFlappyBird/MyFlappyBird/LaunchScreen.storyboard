@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZK9-3q-Zaj">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="W2M-BG-nir">
+            <objects>
+                <viewController id="ZK9-3q-Zaj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GjH-XM-ffH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Flappy_bird" translatesAutoresizingMaskIntoConstraints="NO" id="0G8-DQ-ahX">
+                                <rect key="frame" x="65" y="68" width="301" height="738"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="z8t-33-DbJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="0G8-DQ-ahX" secondAttribute="bottom" constant="396" id="9Sq-Aq-8a6"/>
+                            <constraint firstAttribute="trailing" secondItem="0G8-DQ-ahX" secondAttribute="trailing" constant="73" id="Eqz-Zx-feZ"/>
+                            <constraint firstItem="0G8-DQ-ahX" firstAttribute="leading" secondItem="z8t-33-DbJ" secondAttribute="leading" constant="101" id="eVi-Jr-T58"/>
+                            <constraint firstItem="0G8-DQ-ahX" firstAttribute="top" secondItem="z8t-33-DbJ" secondAttribute="top" constant="190" id="k8R-Y3-9d9"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ynf-mP-oas" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="37.681159420289859" y="64.955357142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Flappy_bird" width="429" height="266"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
